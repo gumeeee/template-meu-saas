@@ -10,7 +10,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Price not found..." }, { status: 500 });
   }
 
-  const metadata = {};
+  const metadata = {
+    price,
+  };
 
   try {
     const session = await stripe.checkout.sessions.create({

@@ -4,8 +4,6 @@ import stripe from "@/app/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const {testeId} = await req.json();
-
   const session = await auth();
   const userId = session?.user?.id;
 
@@ -33,6 +31,8 @@ export async function POST(req: NextRequest) {
       customer: customerId,
       return_url: `${req.headers.get("origin")}/dashboard`,
     });
+
+    return NextResponse.json({ url: portalSession.url }, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.error();
