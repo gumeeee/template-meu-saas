@@ -4,7 +4,7 @@ import { getOrCreateCustomer } from "@/app/server/stripe/get-customer-id";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { testeId } = await req.json();
+  const {} = await req.json();
 
   const price = process.env.STRIPE_SUBSCRIPTION_PRICE_ID;
 
