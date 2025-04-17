@@ -1,5 +1,4 @@
 import { handleAuth } from "@/app/actions/handle-auth";
-import { signIn } from "@/app/lib/auth";
 
 export default function Login() {
   return (
